@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kiki's Kitchen — prototype
 
-## Getting Started
+A mobile-first, single-page restaurant site for **Kiki's Kitchen** in Kitengela. Built with Next.js (App Router), React, TypeScript, Tailwind CSS v4, and `lucide-react`.
 
-First, run the development server:
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production check:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## What's here
 
-To learn more about Next.js, take a look at the following resources:
+- **Sticky header** with mobile menu and an "Order Now" jump link.
+- **Hero** with food photography, direct-ordering pitch, and a "Today's pot" ticket.
+- **Featured menu** with a reusable `MenuItem` component. Every order button builds a pre-filled WhatsApp message.
+- **Catering section** with a quote form that opens WhatsApp with the guest's details.
+- **Footer** with location, hours, phone, and the "Powered by direct local ordering" line.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Swap before pitching
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **WhatsApp number** — edit `whatsappNumber` in `src/lib/site.ts` (currently the placeholder `254700000000`).
+2. **Menu items and prices** — edit the `menuItems` array in `src/app/page.tsx`.
+3. **Photos** — replace the files in `public/images/` with Kiki's own photography. Placeholder credits are in `public/images/CREDITS.md`.
+4. **Location / hours / phone** — edit the `site` object in `src/lib/site.ts`.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The prototype has no database or backend. Menu data lives in `page.tsx`, and all ordering/catering actions are WhatsApp deep links.
+- Images are stored locally so the prototype renders without third-party image requests.
+- The date field accepts any date; add a `min` value when the real booking flow is built.
+# KikiKitchen
